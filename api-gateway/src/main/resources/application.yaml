@@ -1,0 +1,25 @@
+application:
+  endpoints:
+    web-demo: localhost
+server:
+  port: 8081
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: app-demo
+          uri: http://${application.endpoints.web-demo}:8088
+          predicates:
+            - name: Path
+              args:
+                pattern: /say
+          filters:
+            - AddRequestHeader=X-Request-Colour, blue
+            - name: SetStatus
+              args:
+                status: 200
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

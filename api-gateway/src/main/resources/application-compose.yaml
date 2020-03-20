@@ -1,0 +1,3 @@
+application:
+  endpoints:
+    web-demo: demo-app
