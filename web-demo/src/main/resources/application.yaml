@@ -1,8 +1,17 @@
 server:
   port: 8088
+  http2:
+    enabled: true
+
+spring:
+  application:
+    name: web-demo
 
 management:
   endpoints:
     web:
       exposure:
         include: "*"
+  metrics:
+    tags:
+      application: ${spring.application.name}
