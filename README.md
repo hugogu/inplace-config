@@ -4,7 +4,7 @@
 
 ```shell script
 docker-compose build
-docker run --network host -i loadimpact/k6 run --out influxdb=http://localhost:8086/k6  - < ./k6-scripts/say-greeting.js
+docker run --network host -i loadimpact/k6 run --out influxdb=http://localhost:8086/k6  - < ./k6-scripts/min-latency.js
 ```
 
 And import:
